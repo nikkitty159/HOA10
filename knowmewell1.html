@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <!-- Bootstrap CSS --> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Updock&display=swap" rel="stylesheet">
+    <title>Nikki's Know Me Well</title>
+
+    <!-- Static CSS & JS -->
+    <link rel="stylesheet" href="css/styles2.css">
+    <script src="js/script.js" defer></script>
+
+    <!-- Additional Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&family=Updock&display=swap" rel="stylesheet">
+</head>
+
+<style>
+/* Your CSS remains unchanged */
+.navbar {
+    background-color: #ffe3f5 !important;
+    border-bottom: 3px solid #f73141;
+}
+.nav-link {
+    color: #f73141 !important;
+    font-weight: bold;
+}
+.nav-link:hover {
+    color: #ff69b4 !important;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+}
+.grid-item {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #f27294;
+}
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.overlay-text {
+  display: block; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 192, 203, 0.8);
+  color: #6b0f2e;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+}
+
+
+</style>
+
+<body style="background-color: rgb(255, 213, 219);">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand lobster-regular" href="index.html">Nikkicore</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="knowmewell1.html">Know Me Well</a></li>
+              <li class="nav-item"><a class="nav-link" href="ormtable.html">ORM Table</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <!--Home Title-->
+    <h1 class="lobster-regular">──୨ৎ──Know Me Well──୨ৎ──</h1>
+    <center><h2 class="indie-flower-regular">── .✦click each boxes to reveal── .✦</h2></center>
+
+    <!--Main Content/Boxes-->
+    <div class="grid-container">
+      <div class="grid-item" onclick="revealImage(this)">
+        <img src="images/journal.jpg" alt="Image 1" style="display: none">
+        <div class="overlay-text">Hobby</div>
+      </div>
+
+      <div class="grid-item" onclick="revealImage(this)">
+        <img src="images/sakura.jpg" alt="Image 2" style="display: none">
+        <div class="overlay-text">Flower</div>
+      </div>
+
+      <div class="grid-item" onclick="revealImage(this)">
+        <img src="images/pink.jpg" alt="Image 3" style="display: none">
+        <div class="overlay-text">Color</div>
+      </div>
+
+      <div class="grid-item" onclick="revealImage(this)">
+        <img src="images/winter.jpg" alt="Image 4" style="display: none">
+        <div class="overlay-text">Season</div>
+      </div>
+
+      <div class="grid-item" onclick="revealImage(this)">
+        <img src="images/sawako.jpg" alt="Image 5" style="display: none">
+        <div class="overlay-text">Character</div>
+      </div>
+
+      <div class="grid-item" onclick="revealImage(this)">
+        <img src="images/cake.jpg" alt="Image 6" style="display: none">
+        <div class="overlay-text">Dessert</div>
+      </div>
+
+      <div class="grid-item" onclick="revealImage(this)">
+        <img src="images/food.jpg" alt="Image 7" style="display: none">
+        <div class="overlay-text">Food</div>
+      </div>
+
+      <div class="grid-item" onclick="revealImage(this)">
+        <img src="images/field.jpg" alt="Image 8" style="display: none">
+        <div class="overlay-text">Place</div>
+      </div>
+
+      <div class="grid-item" onclick="revealImage(this)">
+        <img src="images/morning2.jpg" alt="Image 9" style="display: none">
+        <div class="overlay-text">Time</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #ffe3f5; padding: 30px; text-align: center; margin-top: 40px; border-top: 3px dashed #f73141;">
+      <h3 style="font-family: 'Lobster', cursive; color: #f73141;">♡ Credits ♡</h3>
+      <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; font-family: 'Caveat', cursive; font-size: 18px; color: #5a2a83; max-width: 1000px; margin: 0 auto;">
+        <!-- Column 1: 1–5 -->
+        <ol style="flex: 1; min-width: 300px; list-style-position: inside;">
+          <li>
+            pic #1 (journaling)<br>
+            Pinterest (n.d.).<br>
+            <a href="https://ph.pinterest.com/pin/844493674604686/" target="_blank" style="color: #d63384;">https://fonts.google.com</a>
+          </li>
+          <li>
+            pic #2 (sakura)<br>
+            Pinterest (n.d.).<br>
+            <a href="https://ph.pinterest.com/pin/44050902599047927/" target="_blank" style="color: #d63384;">https://www.dafont.com</a>
+          </li>
+          <li>
+            pic #3 (color pink)<br>
+            Pinterest (n.d.).<br>
+            <a href="https://ph.pinterest.com/pin/660058889169866818/" target="_blank" style="color: #d63384;">https://www.fontspace.com</a>
+          </li>
+          <li>
+            pic #4 (winter)<br>
+            Pinterest (n.d.).<br>
+            <a href="https://ph.pinterest.com/pin/227291112441245648/" target="_blank" style="color: #d63384;">https://www.fontspace.com</a>
+          </li>
+          <li>
+            pic #5 (sawako)<br>
+            Pinterest (n.d.).<br>
+            <a href="https://ph.pinterest.com/pin/10907224092442447/" target="_blank" style="color: #d63384;">https://www.dafont.com</a>
+          </li>
+        </ol>
+      
+        <!-- Column 2: 6–9 -->
+        <ol start="6" style="flex: 1; min-width: 300px; list-style-position: inside;">
+          <li>
+            pic #6 (strawberry cake)<br>
+            Pinterest (n.d.).<br>
+            <a href="https://ph.pinterest.com/pin/9499849209430643/" target="_blank" style="color: #d63384;">https://www.dafont.com</a>
+          </li>
+          <li>
+            pic #7 (bibimbap)<br>
+            Pinterest (n.d.).<br>
+            <a href="https://ph.pinterest.com/pin/38843615660093073/" target="_blank" style="color: #d63384;">https://www.dafont.com</a>
+          </li>
+          <li>
+            pic #8 (flower field)<br>
+            Pinterest (n.d.).<br>
+            <a href="https://ph.pinterest.com/pin/3659243439747464/" target="_blank" style="color: #d63384;">https://www.dafont.com</a>
+          </li>
+          <li>
+            pic #9 (morning)<br>
+            Pinterest (n.d.).<br>
+            <a href="https://ph.pinterest.com/pin/394979829828967177/" target="_blank" style="color: #d63384;">https://www.dafont.com</a>
+          </li>
+        </ol>
+      </div>
+      
+      
+      <p style="font-family: 'Caveat', cursive; font-size: 16px; color: #8c1a44; margin-top: 15px;">
+        © 2025 Nikkicore. All rights reserved. ✿
+      </p>
+    </footer>
+
+    <!-- Image Reveal Script -->
+    <script>
+      function revealImage(element) {
+    const image = element.querySelector('img');
+    const text = element.querySelector('.overlay-text');
+
+    // Check current visibility and toggle
+    if (image.style.display === "none" || image.style.display === "") {
+      image.style.display = "block";
+      text.style.display = "none";
+    } else {
+      image.style.display = "none";
+      text.style.display = "block";
+    }
+  }
+    </script>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

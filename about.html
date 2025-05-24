@@ -1,0 +1,493 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 ">
+    <link rel="icon" type="image/png" href="images/profile.jpg">
+    <title>Nikkicore - Collage Portfolio</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Updock&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Inline CSS styles kept as-is -->
+    <style>
+        /* Collage Grid */
+        .collage-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        /* Box Styling */
+        .collage-item {
+            width: 100%;
+            aspect-ratio: 1/1; /* Keeps square shape */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            border: 4px solid #f73141;
+        }
+
+        /* Example Colored Divs */
+        .item1 { 
+            background-color: #FFB6C1; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        } /* Light Pink */
+        .item2 { 
+            background-color: #FF69B4;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        } /* Hot Pink */
+        .item3 { background-color: #ff8181; grid-column: 2; grid-row: 1 / span 2; aspect-ratio: auto; } /* Clock - Largest, Centered */
+        .item4 { 
+            background-color: #90EE90; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        } /* Light Green */
+        .item5 {
+            background-color: #87CEFA;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        } /* Light Blue */
+
+        .item6 {
+            background-color: #62d3b1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        } /* Light Blue */
+
+        .item7 {
+            background-color: #ffde83;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        } /* Light Blue */
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .collage-container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+                
+            }
+            .item3 {
+                grid-column: span 2;
+                grid-row: auto;
+            }
+
+            .hobbies {
+                width: 100px; /* Reduce image size on smaller screens */
+                height: auto;
+            }
+
+        @media (max-width: 480px) {
+            .btn {
+                width: 120px; /* Reduce button size on smaller screens */
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .phone {
+                width: 120px;
+                height: 40px;
+            }
+
+            .popup-options {
+                font-size: 12px;
+            }
+}
+
+            
+        }
+
+        .btn {
+            
+            border-radius: 50px;
+            background-color: antiquewhite;
+            width: 150px;
+            display: flex;
+            align-items: center; /* Align icon and text vertically */
+            gap: 8px; /* Adds spacing between the icon and text */
+            padding: 10px 20px;
+            margin-top: 10px;
+
+        }
+
+        .btn:hover {
+            border-radius: 50px;
+            background-color: rgb(255, 95, 135);
+        }
+
+        a {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit text color from parent */
+        }
+
+        a:focus, a:active {
+            outline: none; /* Remove the focus outline */
+        }
+
+        .phone {
+            
+            align-items: center; /* Align icon and text vertically */
+            gap: 8px;
+            border-radius: 50px;
+            background-color: antiquewhite;
+            width: 150px;
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .number {
+            font-family: 'Comic Sans', cursive;
+            color: black;
+        }
+
+        .fa-solid {
+            color: black;
+        }
+
+        .hover-me {
+            position: relative;
+            width: 200px; /* Adjust size as needed */
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .hover-me img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .popup-options {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 192, 203, 0.9); /* Light pink background */
+            padding: 10px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            
+    
+    /* Hides the options initially */
+            transform: translateY(100%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .popup-options p {
+            margin: 5px 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Hover Effect */
+        .hover-me:hover .popup-options {
+            transform: translateY(0); /* Slide-up effect */
+        }
+
+        .hover-me:hover img {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+        
+
+        .item1:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item2:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item4:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item5:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item6:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item7:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .hobbies {
+            width: 150px;
+            height: 150px;
+            border-radius: 180px;
+        }
+
+        .btn2 {
+            background-color: antiquewhite;
+            border-radius: 100px;
+            height: auto;
+            width: auto;
+        }
+
+        .extra-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #78ebd2; /* Light pink */
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            min-height: 50vh;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #f73141;
+        }
+
+        .part2-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #fffd90; /* Light pink */
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            min-height: 50vh;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #f73141;
+        }
+
+        .part3-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #90dcff; /* Light pink */
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            min-height: 50vh;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #f73141;
+        }
+
+        .part4-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #fdabf2; /* Light pink */
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            min-height: 50vh;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #f73141;
+        }
+
+        .navbar {
+            background-color: #ffe3f5 !important;
+            border-bottom: 3px solid #f73141;
+        }
+
+        .nav-link {
+            color: #f73141 !important;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #ff69b4 !important;
+        }
+
+    </style>
+</head>
+
+<body class="bg">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand lobster-regular" href="#">Nikkicore</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="knowmewell1.html">Know Me Well</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ormtable.html">ORM Table</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12 text-center welcome">
+            <h2 class="lobster-regular">entering nikkicore . . . </h2> 
+            <h6 class="welcome-paragraph">
+                Ready to dive into the wholesome world of Nikki? Get to know her in nikkicore ⋆౨ৎ˚⟡˖ ࣪
+            </h6>
+        </div>
+    </div>
+</div>
+
+<div class="collage-container">
+    <div class="collage-item item1">
+        <center>
+            <h3 class="lobster-regular">ʚ🍓ɞContact Detailsʚ🍓ɞ</h3>
+            <a href="https://www.facebook.com/beanicole.repomanta.71" target="_blank">
+                <button class="btn"><i class="fa-brands fa-facebook"></i> 
+                    <h6 class="welcome-paragraph">facebook </h6>
+                </button>
+            </a>
+
+            <a href="https://www.instagram.com/hellonikkitty_?fbclid=IwY2xjawI0sMdleHRuA2FlbQIxMAABHUEG0n0bu2F-aOXT6Qr-MrEKWgD7F0-Yhba_lr7Cn4_9alLgdhSUg7ulUw_aem_Ry25YkcbtXnJ32yy6PWyHA" target="_blank">
+                <button class="btn"><i class="fa-brands fa-instagram"></i>
+                    <h6 class="welcome-paragraph">Instagram </h6>
+                </button>
+            </a>
+
+            <a href="mailto:beanicolerepomanta@gmail.com" target="_blank">
+                <button class="btn"><i class="fa-solid fa-envelope"></i>
+                    <h6 class="welcome-paragraph">Email </h6>
+                </button>
+            </a>
+
+            <div class="phone">
+                <i class="fa-solid fa-phone"></i>
+                <h6 class="number">0975-848-9106</h6>
+            </div>
+        </center>
+    </div>
+
+    <div class="collage-item item2">
+        <center>
+            <h5 class="lobster-regular">ʚ🍓ɞshe enjoys journaling and digital artsʚ🍓ɞ</h5>
+            <img class="hobbies" src="images/journal.jpg">
+            <img class="hobbies" src="images/fancy1.png">
+            <img class="hobbies" src="images/fancy2.png">
+        </center>
+    </div>
+
+    <div class="collage-item item3">
+        <center>
+        <div class="hover-me">
+            <img class="nikki" src="images/me.jpg">
+            <div class="popup-options">
+                <button onclick="location.href='#2nd'" class="btn2">
+                    <p class="welcome-paragraph">Her journey </p>
+                </button>
+                <button onclick="location.href='#3rd'" class="btn2">
+                    <p class="welcome-paragraph">Her passions</p>
+                </button>
+                <button onclick="location.href='#4th'" class="btn2">
+                    <p class="welcome-paragraph">Her accomplishments </p>
+                </button>
+                <button onclick="location.href='#5th'" class="btn2">
+                    <p class="welcome-paragraph">Her interests</p>
+                </button>
+            </div>
+        </div>
+        <h3 class="lobster-regular">
+            ─୨ৎ─You know her as nikki─୨ৎ─
+        </h3>
+        <h6 class="welcome-paragraph">
+            but behind that sweet-sounding nickname, 
+            Bea Nicole R. Repomanta is the original.
+            She is 20 years in age, not matching her 
+            "child-like" personality,
+            as many says.
+            Obsessed with pink and anything bright.<br>
+            Devastating, isn't it?
+        </h6>
+        <br>
+        <h4 class="lobster-regular">
+            Browse the colored cubes <br> as well as her image above<br>
+            to know her more.
+        </h4>
+        </center>
+    </div>
+
+    <div class="collage-item item4">
+        <center>
+            <h5 class="lobster-regular">ʚ🍓ɞher achievements & small winsʚ🍓ɞ</h5><br>
+            <p class="welcome-paragraph">🍰 silver medal in academic excellence</p>
+            <p class="welcome-paragraph">🍰 honors (senior high school commencement)</p>
+            <p class="welcome-paragraph">🍰 made a pin design for TUPCians</p>
+        </center>
+    </div>
+
+    <div class="collage-item item5">
+        <center>
+            <h2 class="lobster-regular">ʚ🍓ɞstrength & weaknessesʚ🍓ɞ</h2>
+            <p class="welcome-paragraph">She's a creative and detail-oriented individual who enjoys expressing ideas through design and storytelling, but still ensures simplicity. 
+                Her ability to adapt and learn quickly allows her to tackle challenges efficiently. Yet, Public speaking is a challenge for her, as she sometimes struggle with confidence when speaking in front of an audience. She tend to get nervous, which affects her ability to communicate her thoughts clearly. However, She is working on improving this by practicing and gradually stepping out of her comfort zone.</p>
+        </center>
+    </div>
+</div>
+
+<section id="2nd">
+    <div class="extra-section item6">
+        <h4 class="lobster-regular">ʚ🍓ɞHer journeyʚ🍓ɞ</h4>
+        <p class="welcome-paragraph">"I am currently a computer programming student, continuously developing my skills in coding, software development, 
+            and problem-solving. My journey into this field began when I was in senior high school taking ICT as strand 
+            with a deep curiosity about technology and how it shapes the world around us. From a young age, I was fascinated by how 
+            websites, applications, and digital systems functioned, which led me to explore programming 
+            languages...
+        </p>
+    </div>
+</section>
+
+<section id="3rd">
+        <div class="part2-section item7">
+            <h4 class="lobster-regular" style="color: #333;">ʚ🍓ɞHer passionsʚ🍓ɞ</h4>
+            <p class="welcome-paragraph">"As a computer programming student, I am most passionate about  
+                creative development. I am not fond of solving complex codes but there's a sense of accomplishment when 
+                I finally solve a complex problem or optimize a piece of code to run more efficiently. Additionally, 
+                I love working on creative projects, such as designing user-friendly applications or developing unique 
+                features in software. Seeing my ideas come to life through programming keeps me motivated and excited to 
+                learn more. This passion drives me to put extra effort into improving my coding abilities, staying updated 
+                with new technologies, and continuously refining my problem-solving techniques."</p>
+        </div>
+</section>
+
+<section id="4th">
+        <div class="part3-section item7">
+            <h4 class="lobster-regular" style="color: #333;">ʚ🍓ɞHer accomplishmentsʚ🍓ɞ</h4>
+            <p class="welcome-paragraph">"One of the biggest achievement I made was finishing my final project
+                for our PROG2, incorporating HTML pages into django. It was fulfilling to finally learn
+                how to manage django administration database. It was delighting to realize that I've come this far.
+                From learning how to type a heading to managing django database."</p>
+        </div>
+</section>
+
+<section id="5th">
+        <div class="part4-section item7">
+            <h4 class="lobster-regular" style="color: #333;">ʚ🍓ɞHer interestsʚ🍓ɞ</h4>
+            <p class="welcome-paragraph">"Right now, I am focused on enhancing my programming skills 
+                especially in UI designs and gaining 
+                practical experience in software development. I am particularly interested in web development, 
+                app design, and exploring new technologies that can improve user experiences. 
+                I’m also eager to learn more about backend development and databases to build more efficient works. 
+</section>
+
+</body>
+</html>

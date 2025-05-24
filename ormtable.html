@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Meanings of Flowers - Search Different Types of Flowers</title>
+  <link rel="stylesheet" href="css/styles3.css"> <!-- Use local CSS file -->
+
+  <style>
+    .navbar {
+    background-color: #ffe3f5 !important;
+    border-bottom: 3px solid #f73141;
+}
+
+.nav-link {
+    color: #f73141 !important;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #ff69b4 !important;
+}
+        body {
+            background-color: #ffe6f2;
+            font-family: 'Caveat', cursive;
+            text-align: center;
+            color: #d63384;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: #ffb3d9;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .flower-card {
+            background: #ffcce6;
+            border: 3px solid #ff99cc;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            text-align: center;
+        }
+        .flower-card h2 {
+            color: #ff66b2;
+            font-size: 1.8em;
+        }
+        .flower-card p {
+            font-size: 1.2em;
+            color: #d63384;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #ff66b2;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .back-home:hover {
+            background: #ff3385;
+        }
+
+        .reference {
+            background-color: rgb(255, 147, 165);
+        
+        }
+
+        footer {
+  background-color: #f6e1e6; /* Soft pastel pink */
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  text-align: center;
+  border-top: 5px solid #ff89b0; /* Girly border color */
+}
+
+.footer-content {
+  margin-bottom: 20px;
+}
+
+.footer-content p {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ff62a1; /* Soft pink */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1em;
+  margin: 5px 0;
+}
+
+ul li a {
+  color: #ff62a1; /* Soft pink */
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-decoration {
+  margin-top: 20px;
+  font-style: italic;
+  color: #ff89b0; /* Girly color */
+}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand lobster-regular" href="#">Nikkicore</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="knowmewell1.html">Know Me Well</a></li>
+          <li class="nav-item"><a class="nav-link" href="ormtable.html">ORM Table</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h1>˚˖𓍢🌷✧˚.🎀⋆ The Meanings of Flowers ⋆🎀.˚✧🌷𓍢˖˚</h1>
+
+  <div id="search-container">
+    <form id="searchForm">
+      <input type="text" id="searchInput" placeholder="Search for beautiful flowers...">
+      <button type="submit">🌺 Search</button>
+    </form>
+  </div>
+
+  <div id="results"></div>
+
+  <footer>
+    <div class="footer-content">
+      <p>Credits</p>
+      <ul>
+        <li>
+          Cottage Garden Flower Shop, (2025). Common and botanical names of flowers.
+        </li>
+        <li>
+          Petal Talk (2025). 60 Most Popular Types of Flowers Common in the US.
+        </li>
+      </ul>
+    </div>
+    <p style="font-family: 'Caveat', cursive; font-size: 16px; color: #8c1a44; margin-top: 15px;">
+      © 2025 Nikkicore. All rights reserved. ✿
+    </p>
+  </footer>
+
+  <script>
+    const flowers = [
+      {
+        
+        name: "Arabian Jasmine",
+        meaning: "It is often associated with divine love, spiritual devotion, and an unpretentious beauty due to its delicate white flowers and sweet fragrance.",
+        family: "Oleaceae",
+        scientific_name: "Jasminum sambac",
+        habitat: "It thrives in tropical and subtropical climates and prefers welldrained, slightly acidic to neutral soil.",
+        image: "images/arabian_jasmine.jpg"
+      },
+      {
+        name: "Baby's Breath",
+        meaning: "symbolizes purity, innocence, and everlasting love.",
+        family: "Caryophyllaceae",
+        scientific_name: "Gypsophila",
+        habitat: "It grows best in temperate climates with mild summers and cool winters.",
+        image: "images/babys_breath.jpg"
+      },
+
+      {
+        name: "Boat Orchid",
+        meaning: "Boat Orchids are associated with prosperity, good fortune, and the journey of life",
+        family: "Orchids",
+        scientific_name: "Cymbidium",
+        habitat: "They typically thrive in temperate and subtropical climates, growing in mountainous areas, forests, and along forest edges.",
+        image: "images/babys_breath.jpg"
+      },
+      
+      {
+        name: "Bougainvillea",
+        meaning: "Its bright, colorful flowers represent the joy of life, enthusiasm, and a carefree spirit",
+        family: "Nyctaginaceae",
+        scientific_name: "Bougainvillea glabra",
+        habitat: "It thrives in tropical and subtropical climates, preferring well-drained, slightly acidic soil.",
+        image: "images/bougainvillea.jpg"
+      },
+
+      {
+        name: "Buttercup",
+        meaning: "Buttercup flowers symbolize youth, joy, and happiness.",
+        family: "Ranunculaceae",
+        scientific_name: "Ranunculus bulbosus",
+        habitat: "Buttercups prefer moist, well-drained soil and often grow in areas with cool to mild climates.",
+        image: "images/buttercup.jpg"
+      },
+
+      {
+        name: "Cattleya Orchids",
+        meaning: "They are often associated with luxury, strength, and the exotic, due to their vibrant colors and intricate, striking flowers.",
+        family: "Orchids",
+        scientific_name: "Cattleya",
+        habitat: "They typically grow in rainforests and cloud forests, thriving at higher elevations where they receive filtered sunlight.",
+        image: "images/cattleya_orchids.jpg"
+      },
+
+      {
+        name: "China Rose",
+        meaning: "The China Rose (Rosa chinensis) symbolizes romantic love, beauty, elegance, femininity, perseverance, and friendship.",
+        family: "Rose",
+        scientific_name: "Rosa Chinensis",
+        habitat: "Rocky Slopes",
+        image: "images/china_rose.jpg"
+      },
+
+      {
+        name: "Daffodil",
+        meaning: "In some cultures, daffodils represent friendship, happiness, and the joy of life.",
+        family: "Amaryllidaceae",
+        scientific_name: "Narcissus",
+        habitat: "Temperate climates with well-drained, fertile soil.",
+        image: "images/daffodil.jpg"
+      },
+
+      {
+        name: "Damask Rose",
+        meaning: "The Damask Rose (Rosa damascena) symbolizes love, beauty, and passion, and is also associated with spiritual devotion, purity, and harmony.",
+        family: "Rose",
+        scientific_name: "Rosa × damascena",
+        habitat: "It prefers well-drained soil, full sunlight, and moderate rainfall",
+        image: "images/damask.jpg"
+      },
+
+      {
+        name: "French Rose",
+        meaning: "Symbolizes love, passion, and beauty.",
+        family: "Rose",
+        scientific_name: "Rosa gallica",
+        habitat: "It grows best in full sunlight but can tolerate partial shade.",
+        image: "images/french_rose.jpg"
+      },
+
+      {
+        name: "Garden Tulip",
+        meaning: "It is often associated with the arrival of spring, representing new beginnings, growth, and the beauty of nature.",
+        family: "Lilies",
+        scientific_name: "Tulipa gesneriana",
+        habitat: "Garden tulips prefer full sunlight and are commonly cultivated in a variety of garden settings, including flower beds, borders, and containers.",
+        image: "images/garden_tulip.jpg"
+      },
+
+      {
+        name: "Helianthus giganteus Sunflower",
+        meaning: "The large, bright yellow blooms represent vitality, warmth, and the beauty of nature",
+        family: "Asteraceae",
+        scientific_name: "Helianthus giganteus",
+        habitat: "It thrives in moist, welldrained soil and is commonly found in prairies, wetlands, and along riverbanks..",
+        image: "images/Helianthus_giganteus.jpg"
+      },
+
+      {
+        name: "Hibiscus",
+        meaning: "They are often associated with love, passion, and romantic relationships",
+        family: "Malvaceae",
+        scientific_name: "Hibiscus",
+        habitat: "They thrive in warm climates with well-drained, fertile soil and plenty of sunlight.",
+        image: "images/hibiscus.jpg"
+      },
+
+      {
+        name: "Iris",
+        meaning: "It is often associated with royalty and nobility, particularly due to its elegant shape and vibrant colors.",
+        family: "Iridaceae",
+        scientific_name: "Iris × germanica",
+        habitat: "Irises prefer well-drained soil and often grow in areas with full sunlight or partial shade.",
+        image: "images/iris.jpg"
+      },
+
+      {
+        name: "Lady Tulip",
+        meaning: "It is often associated with feminine qualities, such as refinement and delicacy.",
+        family: "Lilies",
+        scientific_name: "Tulipa clusiana",
+        habitat: "Lady Tulips prefer full sunlight and are commonly found in dry grasslands, rocky hillsides, and open meadows.",
+        image: "images/lady_tulip.jpg"
+      },
+
+      {
+        name: "Lilac",
+        meaning: "Lilac flowers symbolize love, renewal, and the first emotions of love, often representing purity, innocence, and the beauty of spring.",
+        family: "Oleaceae",
+        scientific_name: "Syringa",
+        habitat: "They thrive in temperate climates and prefer welldrained, loamy soil with a slightly alkaline to neutral pH.",
+        image: "images/lilac.jpg"
+      },
+
+      {
+        name: "Lotus",
+        meaning: "symbol of purity, enlightenment, and spiritual growth.",
+        family: "Nelumbonaceae",
+        scientific_name: "Nelumbo nucifera",
+        habitat: "prefer calm, muddy or silty waters and require ample sunlight to flourish.",
+        image: "images/lotus.jpg"
+      },
+
+      {
+        name: "Magnolia",
+        meaning: "Magnolia flowers symbolize dignity, nobility, and perseverance..",
+        family: "Magnoliaceae",
+        scientific_name: "Magnolia",
+        habitat: "Grow best in areas with well-drained, slightly acidic soil. Magnolias thrive in moist woodlands, riverbanks, and forest edges",
+        image: "images/magnolia.jpg"
+      },
+
+      {
+        name: "Maximilian Sunflower",
+        meaning: "Due to its hardy nature and ability to thrive in challenging environments, the Maximilian Sunflower can also symbolize endurance, perseverance, and the ability to overcome adversity.",
+        family: "Asteraceae",
+        scientific_name: "Helianthus maximiliani",
+        habitat: "It thrives in a variety of habitats, including prairies, meadows, and open woodlands",
+        image: "images/maximilian_sunflower.jpg"
+      },
+
+      {
+        name: "Parrot Tulips",
+        meaning: "symbolize extravagance, uniqueness, and elegance.",
+        family: "Lilies",
+        scientific_name: "Tulipa × gesneriana Parrot Group",
+        habitat: "They thrive in temperate climates with well-drained, fertile soil.",
+        image: "images/parrot_tulip.jpg"
+      },
+
+      {
+        name: "Peruvian Lily",
+        meaning: "They are often associated with enduring relationships and the idea of strong, supportive connections between people.",
+        family: "Alstroemeriaceae",
+        scientific_name: "Alstroemeria",
+        habitat: "They thrive in temperate climates and are typically found in highaltitude grasslands and open woodlands.",
+        image: "images/peruvian_lily.jpg"
+      },
+
+      {
+        name: "Red Cross Tulip",
+        meaning: "The name 'Red Cross' often evokes a sense of charity and humanitarian aid.",
+        family: "Lilies",
+        scientific_name: "Tulipa pulchella",
+        habitat: "It thrives in temperate climates and prefers welldrained, fertile soil, and rocky slopes.",
+        image: "images/red_cross_tulip.jpg"
+      },
+
+      {
+        name: "Sweet Brier",
+        meaning: "Symbolizes simplicity, wild beauty, and the sweetness of life.",
+        family: "Rose",
+        scientific_name: "Rosa rubiginosa",
+        habitat: "wild, uncultivated areas like hedgerows, woodland edges, and grasslands",
+        image: "images/sweet_brier.jpg"
+      },
+
+      {
+        name: "Transvaal Daisy",
+        meaning: "Depending on the color, the gerbera’s meaning can vary: red for love, pink for admiration, yellow for happiness, and white for purity.",
+        family: "Asteraceae",
+        scientific_name: "Gerbera",
+        habitat: "Gerberas grow best in areas with warm temperatures, as they are sensitive to frost.",
+        image: "images/transvaal.jpg"
+      },
+
+      {
+        name: "White Rose of York",
+        meaning: "The White Rose of York symbolizes purity, innocence, and new beginnings.",
+        family: "Rose",
+        scientific_name: "Rosa × alba",
+        habitat: "Typically thrives in temperate climates.",
+        image: "images/whiterose.jpg"
+      }
+    ];
+
+    document.getElementById("searchForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const resultDiv = document.getElementById("results");
+      resultDiv.innerHTML = "";
+
+      const matched = flowers.filter(flower =>
+        flower.name.toLowerCase().includes(query) ||
+        flower.meaning.toLowerCase().includes(query) ||
+        flower.family.toLowerCase().includes(query) ||
+        flower.scientific_name.toLowerCase().includes(query) ||
+        flower.habitat.toLowerCase().includes(query)
+      );
+
+      if (matched.length > 0) {
+        matched.forEach(flower => {
+          const card = `
+            <div class="flower-card">
+              <h2>${flower.name}</h2>
+              <img src="${flower.image}" alt="${flower.name}" width="200">
+              <p><strong>Meaning:</strong> ${flower.meaning}</p>
+              <p><strong>Family:</strong> ${flower.family}</p>
+              <p><strong>Scientific Name:</strong> ${flower.scientific_name}</p>
+              <p><strong>Habitat:</strong> ${flower.habitat}</p>
+            </div>
+          `;
+          resultDiv.innerHTML += card;
+        });
+      } else {
+        resultDiv.innerHTML = "<p>No results found.</p>";
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
