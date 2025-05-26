@@ -1,0 +1,416 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 ">
+    <link rel="icon" type="image/png" href="images/profile.jpg">
+    <title>Nikkicore - Portfolio Page</title>
+
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Updock&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Inline CSS styles kept as-is -->
+    <style>
+        .pink-column {
+            background-color: #ffb6c1;
+            flex: 1 1 18%; /* Adjusts width & allows wrapping on small screens */
+            min-width: 100px;
+            height: 150px;
+            border-radius: 10px;
+            border: 3px solid #f73141;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pink-column:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(255, 75, 43, 0.3);
+        }
+
+        /* Collage Grid */
+        .collage-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        /* Box Styling */
+        .collage-item {
+            width: 100%;
+            aspect-ratio: 1/1; /* Keeps square shape */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            border: 4px solid #f73141;
+        }
+
+        /* Example Colored Divs */
+        .item1 { 
+            background-color: #FFB6C1; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        } /* Light Pink */
+        .item2 { 
+            background-color: #FF69B4;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        } /* Hot Pink */
+        .item3 { background-color: #ff8181; grid-column: 2; grid-row: 1 / span 2; aspect-ratio: auto; } /* Clock - Largest, Centered */
+        .item4 { 
+            background-color: #90EE90; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        } /* Light Green */
+        .item5 {
+            background-color: #87CEFA;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        } /* Light Blue */
+
+        .item6 {
+            background-color: #62d3b1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        } /* Light Blue */
+
+        .item7 {
+            background-color: #ffde83;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        } /* Light Blue */
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .collage-container {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+                
+            }
+            .item3 {
+                grid-column: span 2;
+                grid-row: auto;
+            }
+
+            .hobbies {
+                width: 100px; /* Reduce image size on smaller screens */
+                height: auto;
+            }
+
+        @media (max-width: 480px) {
+            .btn {
+                width: 120px; /* Reduce button size on smaller screens */
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .phone {
+                width: 120px;
+                height: 40px;
+            }
+
+            .popup-options {
+                font-size: 12px;
+            }
+}
+
+            
+        }
+
+        .btn {
+            
+            border-radius: 50px;
+            background-color: antiquewhite;
+            width: 150px;
+            display: flex;
+            align-items: center; /* Align icon and text vertically */
+            gap: 8px; /* Adds spacing between the icon and text */
+            padding: 10px 20px;
+            margin-top: 10px;
+
+        }
+
+        .btn:hover {
+            border-radius: 50px;
+            background-color: rgb(255, 95, 135);
+        }
+
+        a {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit text color from parent */
+        }
+
+        a:focus, a:active {
+            outline: none; /* Remove the focus outline */
+        }
+
+        .phone {
+            
+            align-items: center; /* Align icon and text vertically */
+            gap: 8px;
+            border-radius: 50px;
+            background-color: antiquewhite;
+            width: 150px;
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .number {
+            font-family: 'Comic Sans', cursive;
+            color: black;
+        }
+
+        .fa-solid {
+            color: black;
+        }
+
+        .hover-me {
+            position: relative;
+            width: 200px; /* Adjust size as needed */
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .hover-me img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .popup-options {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 192, 203, 0.9); /* Light pink background */
+            padding: 10px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            
+    
+    /* Hides the options initially */
+            transform: translateY(100%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .popup-options p {
+            margin: 5px 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Hover Effect */
+        .hover-me:hover .popup-options {
+            transform: translateY(0); /* Slide-up effect */
+        }
+
+        .hover-me:hover img {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+        
+
+        .item1:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item2:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item4:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item5:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item6:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .item7:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 15px 30px rgba(255, 75, 43, 0.5);
+        }
+
+        .hobbies {
+            width: 150px;
+            height: 150px;
+            border-radius: 180px;
+        }
+
+        .btn2 {
+            background-color: antiquewhite;
+            border-radius: 100px;
+            height: auto;
+            width: auto;
+        }
+
+        .extra-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #78ebd2; /* Light pink */
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            min-height: 50vh;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #f73141;
+        }
+
+        .part2-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #fffd90; /* Light pink */
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            min-height: 50vh;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #f73141;
+        }
+
+        .part3-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #90dcff; /* Light pink */
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            min-height: 50vh;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #f73141;
+        }
+
+        .part4-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #fdabf2; /* Light pink */
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            min-height: 50vh;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border: 4px solid #f73141;
+        }
+
+        .navbar {
+            background-color: #ffe3f5 !important;
+            border-bottom: 3px solid #f73141;
+        }
+
+        .nav-link {
+            color: #f73141 !important;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #ff69b4 !important;
+        }
+
+    </style>
+</head>
+
+<body class="bg">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand lobster-regular" href="#">Nikkicore</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="knowmewell1.html">Know Me Well</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ormtable.html">ORM Table</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Portfolio</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+
+<!-- Container for the compiled activities and pink divs -->
+<div class="container my-4">
+  <!-- Top box -->
+  <div style="background-color: #ffe3f5; border-radius: 15px; border: 3px solid #f73141; padding: 20px;">
+    <h5 class="text-center fw-bold">Compiled activities</h5>
+  </div>
+
+  <!-- Five pink divs below -->
+  <div class="d-flex justify-content-between flex-wrap text-center mt-4" style="gap: 10px;">
+    
+    <div class="pink-column">Participation Tasks <br> (Online)</div>
+    <div class="pink-column">Participation Tasks <br> (Onsite)</div>
+    <div class="pink-column">Major Exams</div>
+    <div class="pink-column">Hands-on Activities</div>
+    <div class="pink-column">Unit Outputs</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  
+
+
+
+<!-- Footer section -->
+<footer style="background-color: #ffe6f0; padding: 20px; text-align: center; font-size: 14px; color: #333; border-top: 2px solid #ff99cc; width: 100%;">
+  <div style="max-width: 600px; margin: 0 auto;">
+    <p>Made with 💕 by Nikki | © 2025 All Things Lovely</p>
+    
+      Follow me:
+      <a href="https://www.facebook.com/beanicole.repomanta.71/" target="_blank" style="margin: 0 5px; color: #4267B2;">Facebook</a> |
+      <a href="https://github.com/nikkitty159" target="_blank" style="margin: 0 5px; color: #333;">GitHub</a> |
+      
+    </p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+</body>
+
+<!-- Bootstrap Bundle with Popper.js (REQUIRED for navbar toggling) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
